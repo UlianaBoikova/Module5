@@ -11,18 +11,21 @@
 #include <algorithm>
 
 void reverse() {
-	std::ifstream inputFile("CSC450_CT5_mod5.txt");  // Открытие файла для чтения
+	// Read file "CSC450_CT5_mod5.txt" to text variable
+	std::ifstream inputFile("CSC450_CT5_mod5.txt");
     std::string line;
     std::string text;
 	while (std::getline(inputFile, line)) {
-	    text += line + "\n";  // Вывод строки на экран
+	    text += line + "\n";
 	}
     inputFile.close();
 
+    // Reverse text variable
 	std::reverse(text.begin(), text.end());
 
-	std::ofstream out;          // поток для записи
-	out.open("CSC450-mod5-reverse.txt");      // открываем файл для записи
+	// Store this variable to "CSC450-mod5-reverse.txt"
+	std::ofstream out;
+	out.open("CSC450-mod5-reverse.txt");
 	if (out.is_open())
 	{
 	    out << text << std::endl;
@@ -35,7 +38,7 @@ int main() {
     std::string userInput;
 
 
-    // Step 1: Obtain user input
+    // Put user input to file "CSC450_CT5_mod5.txt"
     std::cout << "Enter an user input: ";
     std::getline(std::cin, userInput);
 
@@ -45,6 +48,7 @@ int main() {
         out << userInput << std::endl;
     }
     out.close();
+    // Call the reverse function
     reverse();
 
     return 0;
